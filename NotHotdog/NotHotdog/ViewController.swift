@@ -25,7 +25,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Hide share button
+        self.shareButton.isHidden = true;
         imagePicker.delegate =  self
     }
 
@@ -35,6 +36,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         cameraButton.isEnabled = false;//Disable camera
         SVProgressHUD.show()
+        
+        
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             //Set image view to this image
@@ -71,6 +74,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 DispatchQueue.main.async {
                     self.cameraButton.isEnabled = true
                     SVProgressHUD.dismiss()
+                    self.shareButton.isHidden = false
                 }
                 
                 if self.classificationResult.contains("hotdog") {
