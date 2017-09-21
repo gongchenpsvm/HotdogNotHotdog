@@ -15,8 +15,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let apikey = "9c33c4e7c84899c64f370f15b485fcfcf3c0351d"
     let version = "2017-09-21"
     
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var topBarImageView: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet  var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     let imagePicker = UIImagePickerController()
     var classificationResult : [String] = []//Set to empty array
@@ -77,6 +79,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         self.navigationItem.title = "Hotdog!"
                         self.navigationController?.navigationBar.barTintColor = UIColor.green
                         self.navigationController?.navigationBar.isTranslucent = false
+                        self.topBarImageView.image = UIImage(named:"hotdog")
                         
                     }
                     //Remove since in back thread
@@ -87,6 +90,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         self.navigationItem.title = "Not Hotdog!"
                         self.navigationController?.navigationBar.barTintColor = UIColor.red
                         self.navigationController?.navigationBar.isTranslucent = false
+                        self.topBarImageView.image = UIImage(named:"not-hotdog")
                     }
                 }
             })
@@ -101,5 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func shareTapped(_ sender: UIButton) {
+    }
 }
 
