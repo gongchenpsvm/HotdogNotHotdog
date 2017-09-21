@@ -9,6 +9,7 @@
 import UIKit
 import VisualRecognitionV3
 import SVProgressHUD
+import Social
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -108,8 +109,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
-    
+
     @IBAction func shareTapped(_ sender: UIButton) {
+//        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
+//            
+//        }
     }
 }
 
