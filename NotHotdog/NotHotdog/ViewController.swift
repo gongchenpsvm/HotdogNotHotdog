@@ -8,6 +8,7 @@
 
 import UIKit
 import VisualRecognitionV3
+import SVProgressHUD
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -29,6 +30,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //Show image on screen and send it to ibm
+        
+        cameraButton.isEnabled = false;//Disable camera
+        SVProgressHUD.show()
+        
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             //Set image view to this image
             if imageView != nil{
@@ -59,10 +64,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.classificationResult.append(classes[index].classification)
                 }
                 print(self.classificationResult)
+                
+                //Re-enable camera
+                DispatchQueue.main.async {
+                    self.cameraButton.isEnabled = true
+                    SVProgressHUD.dismiss()
+                }
+                
                 if self.classificationResult.contains("hotdog") {
                     //Update UI at main thread
                     DispatchQueue.main.async {
                         self.navigationItem.title = "Hotdog!"
+                        self.navigationController?.navigationBar.barTintColor = UIColor.green
+                        self.navigationController?.navigationBar.isTranslucent = false
+                        
                     }
                     //Remove since in back thread
                     //self.navigationItem.title = "Hotdog!"
@@ -70,6 +85,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 else {
                     DispatchQueue.main.async {
                         self.navigationItem.title = "Not Hotdog!"
+                        self.navigationController?.navigationBar.barTintColor = UIColor.red
+                        self.navigationController?.navigationBar.isTranslucent = false
                     }
                 }
             })

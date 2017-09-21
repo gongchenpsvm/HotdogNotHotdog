@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +21,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhq-IA-vbN">
                                 <rect key="frame" x="-1" y="65" width="375" height="559"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kkN-IA-cCU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="83" id="6Ez-sH-k1c"/>
+                                    <constraint firstAttribute="height" constant="83" id="KzR-Br-29N"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kkN-IA-cCU" secondAttribute="trailing" id="3EP-TQ-N8q"/>
                             <constraint firstItem="mhq-IA-vbN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7w9-qS-k5u"/>
                             <constraint firstItem="mhq-IA-vbN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FUk-e9-rDr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mhq-IA-vbN" secondAttribute="bottom" id="Jdb-8f-Kns"/>
+                            <constraint firstItem="kkN-IA-cCU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S0X-8t-nS2"/>
+                            <constraint firstItem="kkN-IA-cCU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="lct-pj-9et"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kkN-IA-cCU" secondAttribute="bottom" constant="520" id="vYh-Ev-G0e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mhq-IA-vbN" secondAttribute="trailing" id="yw3-T9-3JS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
