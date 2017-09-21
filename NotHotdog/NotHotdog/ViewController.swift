@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet  var cameraButton: UIBarButtonItem!
     
     let imagePicker = UIImagePickerController()
+    var classificationResult : [String] = []//Set to empty array
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             try? imageData?.write(to: fileURL, options: [])
             
             visualRecognition.classify(imageFile: fileURL, success: { (classifiedImages) in
-                print(classifiedImages)
+                let classes = classifiedImages.images.first!.classifiers.first!.classes
+                
+                self.classificationResult = []
+                
+                for index in 0..<classes.count {
+                    self.classificationResult.append(classes[index].classification)
+                }
+                print(self.classificationResult)
+                if self.classificationResult.contains("hotdog") {
+                    //Update UI at main thread
+                    DispatchQueue.main.async {
+                        self.navigationItem.title = "Hotdog!"
+                    }
+                    //Remove since in back thread
+                    //self.navigationItem.title = "Hotdog!"
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.navigationItem.title = "Not Hotdog!"
+                    }
+                }
             })
         } else {//Not true
             print("Error: picking image")
