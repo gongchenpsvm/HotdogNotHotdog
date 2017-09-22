@@ -111,9 +111,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func shareTapped(_ sender: UIButton) {
-//        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
-//            
-//        }
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
+            let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            vc?.setInitialText("See if your food is a hotdog or not")
+            vc?.add(#imageLiteral(resourceName: "hotdog"))
+            present(vc!, animated: true, completion: nil)
+        } else {
+            self.navigationItem.title = "Please log in to Twitter"
+        }
     }
 }
 
