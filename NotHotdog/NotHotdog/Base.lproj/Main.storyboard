@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -28,23 +29,6 @@
                                     <constraint firstAttribute="height" constant="83" id="KzR-Br-29N"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VP-XT-45S">
-                                <rect key="frame" x="124" y="440" width="123" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.51969655786386437" green="0.96900803989171402" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="shareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FDX-W7-igC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.83529411764705885" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -71,7 +55,6 @@
                     <connections>
                         <outlet property="cameraButton" destination="NgK-w3-Zdz" id="Oe5-in-gpS"/>
                         <outlet property="imageView" destination="mhq-IA-vbN" id="tEM-Tg-6GC"/>
-                        <outlet property="shareButton" destination="3VP-XT-45S" id="wkP-5M-XY1"/>
                         <outlet property="topBarImageView" destination="kkN-IA-cCU" id="4FN-yD-ye9"/>
                     </connections>
                 </viewController>

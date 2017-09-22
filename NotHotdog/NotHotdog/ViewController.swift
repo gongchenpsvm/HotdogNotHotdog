@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let apikey = "9c33c4e7c84899c64f370f15b485fcfcf3c0351d"
     let version = "2017-09-21"
     
-    @IBOutlet weak var shareButton: UIButton!
+    //@IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var topBarImageView: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         //Hide share button
-        self.shareButton.isHidden = true;
+        //self.shareButton.isHidden = true;
         imagePicker.delegate =  self
     }
 
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 DispatchQueue.main.async {
                     self.cameraButton.isEnabled = true
                     SVProgressHUD.dismiss()
-                    self.shareButton.isHidden = false
+                    //self.shareButton.isHidden = false
                 }
                 
                 if self.classificationResult.contains("hotdog") {
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
-        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
